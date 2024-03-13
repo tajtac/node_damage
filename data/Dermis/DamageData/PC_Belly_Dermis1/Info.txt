@@ -1,0 +1,4 @@
+Pig: C
+Location: Belly
+Direction: Parallel
+Ncycles: 4

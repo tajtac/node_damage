@@ -1,0 +1,4 @@
+Pig: B
+Location: Belly
+Direction: Perpendicular
+Ncycles: 4

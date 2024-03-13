@@ -1,0 +1,4 @@
+Pig: A
+Location: Belly
+Direction: Perpendicular
+Ncycles: 5

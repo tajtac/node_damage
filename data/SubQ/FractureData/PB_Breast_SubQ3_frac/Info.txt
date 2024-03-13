@@ -1,0 +1,4 @@
+Pig: B
+Location: Breast
+Direction: Perpendicular
+Test: DF

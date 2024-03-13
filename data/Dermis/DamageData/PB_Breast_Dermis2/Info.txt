@@ -1,0 +1,4 @@
+Pig: B
+Location: Breast
+Direction: Parallel
+Ncycles: 5
