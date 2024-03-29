@@ -66,7 +66,8 @@ def init_params_damage(key, Psi_layers=[1,3,3,1], f_layers=[1,3,3,1], G_layers=[
 def init_params_damage_simple(key, Psi_layers=[1,3,3,1], G_layers=[1,3,3,1]): # For the time being use the same NN architecture for all
     params_Psi = init_params(Psi_layers, key)[0]
     key, subkey = random.split(key)
-    params_G = init_layers(G_layers, key)
+    # params_G = init_layers_nobias(G_layers, key)
+    params_G = [init_layers_nobias(G_layers, key), jnp.float64(0.0)]
     params = [params_Psi, params_G]
     return params
 
@@ -102,7 +103,7 @@ def forward_pass_nobias(H, Ws):
 
 @jit
 def RK_forward_pass(Y0, params):
-  n = 4
+  n = 10
   dt = 1.0/n
   def RK_step(Y,t):
     Y = jnp.array([Y])
@@ -118,7 +119,7 @@ RK_vmap = vmap(RK_forward_pass, in_axes=(0, None), out_axes=0)
 
 @jit
 def RK_forward_pass_nobias(Y0, params):
-  n = 4
+  n = 10
   dt = 1.0/n
   def RK_step(Y,t):
     Y = jnp.array([Y])
